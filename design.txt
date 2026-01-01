@@ -1,0 +1,38 @@
+benchWalaAi
+│
+├── Admin
+│   │
+│   ├── Global Admin
+│   │   ├─ All powers
+│   │   ├─ Create / manage Exams
+│   │   ├─ Allocate / deallocate Local Admins
+│   │   ├─ Publish exam circulars
+│   │   └─ Emergency notifications (to staff & students)
+│   │
+│   └── Local Admin
+│       ├─ Exam-level control (assigned exams only)
+│       ├─ Classroom & bench allocation
+│       ├─ Seat freeze (final lock before exam)
+│       ├─ Staff allocation (hall-wise)
+│       ├─ Booklet / paper requirement entry
+│       └─ Booklet received vs required confirmation
+│
+├── Exam (central entity)
+│   ├─ Date / session / subject
+│   ├─ Hall mapping
+│   ├─ Seat matrix
+│   ├─ Staff mapping
+│   └─ Booklet count
+│
+└── User
+    │
+    ├── Student
+    │   ├─ View exam details
+    │   ├─ Classroom + bench navigation
+    │   └─ AI (navigation & exam info only)
+    │
+    └── Staff
+        ├─ View assigned hall
+        ├─ Mark present / absent
+        ├─ Booklet count confirmation
+        └─ Notify Local / Global Admin (issues)
