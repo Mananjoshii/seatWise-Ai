@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>Create Classroom</h2>
+
+    <form method="POST" action="/classrooms/create">
+      <input name="name" placeholder="Room Name (CSE-101)" required />
+      <input name="floor" type="number" placeholder="Floor" />
+      <input name="rows" type="number" placeholder="Rows" required />
+      <input name="cols" type="number" placeholder="Columns" required />
+
+      <% if (departments && departments.length) { %>
+      <select name="department_id" required>
+        <option value="">Select Department</option>
+        <% departments.forEach(d => { %>
+        <option value="<%= d.id %>"><%= d.name %></option>
+        <% }) %>
+      </select>
+      <% } %>
+
+      <button type="submit">Create Classroom</button>
+    </form>
+  </body>
+</html>

@@ -40,6 +40,9 @@ app.use("/", dashboardRoutes);
 const examRoutes = require("./routes/exam.routes");
 app.use("/", examRoutes);
 
+const classroomRoutes = require("./routes/classroom.routes");
+app.use("/", classroomRoutes);
+
 // server
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);

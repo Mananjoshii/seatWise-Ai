@@ -36,6 +36,7 @@ router.post("/login", async (req, res) => {
     id: user.id,
     name: user.name,
     role: user.role,
+    department_id: user.department_id,
   };
 
   if (user.role === "GLOBAL_ADMIN") res.redirect("/dashboard/global-admin");

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <table border="1">
+      <tr>
+        <th>Room</th>
+        <th>Floor</th>
+        <th>Department</th>
+        <th>Total Benches</th>
+      </tr>
+
+      <% classrooms.forEach(c => { %>
+      <tr>
+        <td><%= c.name %></td>
+        <td><%= c.floor %></td>
+        <td><%= c.department %></td>
+        <td><%= c.total_benches %></td>
+      </tr>
+      <% }) %>
+    </table>
+  </body>
+</html>
