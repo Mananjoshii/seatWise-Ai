@@ -37,6 +37,9 @@ app.use("/", authRoutes);
 const dashboardRoutes = require("./routes/dashboard.routes");
 app.use("/", dashboardRoutes);
 
+const examRoutes = require("./routes/exam.routes");
+app.use("/", examRoutes);
+
 // server
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);

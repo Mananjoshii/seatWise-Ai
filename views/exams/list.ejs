@@ -1,0 +1,19 @@
+<h2>Exams</h2>
+
+<table border="1">
+  <tr>
+    <th>Title</th>
+    <th>Date</th>
+    <th>Session</th>
+    <th>Created By</th>
+  </tr>
+
+  <% exams.forEach(exam => { %>
+  <tr>
+    <td><%= exam.title %></td>
+    <td><%= exam.exam_date %></td>
+    <td><%= exam.session %></td>
+    <td><%= exam.creator %></td>
+  </tr>
+  <% }) %>
+</table>

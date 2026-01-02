@@ -1,0 +1,14 @@
+<h2>Create Exam</h2>
+
+<form method="POST" action="/exams/create">
+  <input name="title" placeholder="Exam Title" required />
+  <input type="date" name="exam_date" required />
+
+  <select name="session" required>
+    <option value="">Select Session</option>
+    <option value="FN">FN</option>
+    <option value="AN">AN</option>
+  </select>
+
+  <button type="submit">Create</button>
+</form>
