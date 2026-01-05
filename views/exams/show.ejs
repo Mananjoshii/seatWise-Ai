@@ -9,6 +9,8 @@
     <h2><%= exam.title %></h2>
     <p>Date: <%= exam.exam_date %> | Session: <%= exam.session %></p>
 
+    <% if (session.user.role === "GLOBAL_ADMIN") { %>
+
     <h3>Add Department to Exam</h3>
 
     <form method="POST" action="/exams/<%= exam.id %>/departments">
@@ -24,7 +26,7 @@
 
     <hr />
 
-    <% if (session.user.role === "LOCAL_ADMIN") { %>
+    <% } %> <% if (session.user.role === "LOCAL_ADMIN") { %>
 
     <h3>Assign Classroom to this Exam</h3>
 
@@ -59,6 +61,28 @@
       </li>
       <% }) %>
     </ul>
-    <%}%>
+    <%}%> <% if (session.user.role === "LOCAL_ADMIN") { %>
+
+    <h3>Upload Classrooms</h3>
+    <form
+      method="POST"
+      action="/exams/<%= exam.id %>/upload-classrooms"
+      enctype="multipart/form-data"
+    >
+      <input type="file" name="file" required />
+      <button type="submit">Upload Classrooms</button>
+    </form>
+
+    <h3>Upload Students (Auto Allocate)</h3>
+    <form
+      method="POST"
+      action="/exams/<%= exam.id %>/upload-students"
+      enctype="multipart/form-data"
+    >
+      <input type="file" name="file" required />
+      <button type="submit">Upload Students & Allocate</button>
+    </form>
+
+    <% } %>
   </body>
 </html>

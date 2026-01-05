@@ -55,6 +55,9 @@ app.use("/", seatAllocationRoutes);
 const studentRoutes = require("./routes/student.routes");
 app.use("/", studentRoutes);
 
+const allocationRoutes = require("./routes/allocation.routes");
+app.use("/", allocationRoutes);
+
 // server
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
