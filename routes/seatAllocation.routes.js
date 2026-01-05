@@ -53,10 +53,10 @@ router.post(
   isLoggedIn,
   allowRoles("LOCAL_ADMIN"),
   async (req, res) => {
-    const { examId } = req.params;
-    const { student_id, bench_id, classroomId } = req.body;
+    const { examId, classroomId } = req.params;
+    const { student_id, bench_id } = req.body;
     const deptId = req.session.user.department_id;
-
+    console.log(classroomId);
     // 1. Check seat freeze
     const [[mapping]] = await db.query(
       `SELECT seats_frozen
