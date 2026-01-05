@@ -83,6 +83,18 @@
       <button type="submit">Upload Students & Allocate</button>
     </form>
 
-    <% } %>
+    <% if (session.user.role === "LOCAL_ADMIN") { %>
+
+    <h3>Upload Staff (Auto Allocate)</h3>
+    <form
+      method="POST"
+      action="/exams/<%= exam.id %>/upload-staff"
+      enctype="multipart/form-data"
+    >
+      <input type="file" name="file" required />
+      <button type="submit">Upload & Allocate Staff</button>
+    </form>
+
+    <% } %> <% } %>
   </body>
 </html>

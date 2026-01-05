@@ -21,9 +21,9 @@ router.get(
   }
 );
 
-router.get("/dashboard/staff", isLoggedIn, allowRoles("STAFF"), (req, res) => {
-  res.render("dashboards/staff");
-});
+// router.get("/dashboard/staff", isLoggedIn, allowRoles("STAFF"), (req, res) => {
+//   res.render("dashboards/staff");
+// });
 
 router.get(
   "/dashboard/student",

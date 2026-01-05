@@ -1,12 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Staff Dashboard</title>
   </head>
   <body>
-    <h2>Staff Dashboard</h2>
-    <p>Welcome, <%= session.user.name %></p>
+    <h2>My Exam Duties</h2>
+
+    <% if (!assignments || assignments.length === 0) { %>
+
+    <p>No exam duties assigned.</p>
+    <% } else { %>
+    <table border="1">
+      <tr>
+        <th>Exam</th>
+        <th>Date</th>
+        <th>Session</th>
+        <th>Classroom</th>
+      </tr>
+
+      <% assignments.forEach(a => { %>
+      <tr>
+        <td><%= a.title %></td>
+        <td><%= a.exam_date %></td>
+        <td><%= a.session %></td>
+        <td><%= a.classroom %></td>
+      </tr>
+      <% }) %>
+    </table>
+    <% } %>
   </body>
 </html>
