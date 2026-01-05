@@ -64,6 +64,9 @@ app.use("/", staffAllocationRoutes);
 const staffRoutes = require("./routes/staff.routes");
 app.use("/", staffRoutes);
 
+const adminAttendanceRoutes = require("./routes/adminAttendance.routes");
+app.use("/", adminAttendanceRoutes);
+
 // server
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);

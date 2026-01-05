@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Attendence</title>
+  </head>
+  <body>
+    <h2>Mark Attendance</h2>
+
+    <form method="POST">
+      <table border="1">
+        <tr>
+          <th>Bench</th>
+          <th>Student</th>
+          <th>Status</th>
+        </tr>
+
+        <% students.forEach(s => { %>
+        <tr>
+          <td><%= s.bench_number %></td>
+          <td><%= s.name %></td>
+          <td>
+            <select name="<%= s.id %>" required>
+              <option value="PRESENT">Present</option>
+              <option value="ABSENT">Absent</option>
+            </select>
+          </td>
+        </tr>
+        <% }) %>
+      </table>
+
+      <button type="submit">Submit Attendance</button>
+    </form>
+  </body>
+</html>

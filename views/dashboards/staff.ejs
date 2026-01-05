@@ -6,8 +6,7 @@
   <body>
     <h2>My Exam Duties</h2>
 
-    <% if (!assignments || assignments.length === 0) { %>
-
+    <% if (assignments.length === 0) { %>
     <p>No exam duties assigned.</p>
     <% } else { %>
     <table border="1">
@@ -16,6 +15,7 @@
         <th>Date</th>
         <th>Session</th>
         <th>Classroom</th>
+        <th>Action</th>
       </tr>
 
       <% assignments.forEach(a => { %>
@@ -24,6 +24,13 @@
         <td><%= a.exam_date %></td>
         <td><%= a.session %></td>
         <td><%= a.classroom %></td>
+        <td>
+          <a
+            href="/staff/exams/<%= a.exam_id %>/classrooms/<%= a.classroom_id %>/attendance"
+          >
+            Mark Attendance
+          </a>
+        </td>
       </tr>
       <% }) %>
     </table>

@@ -14,6 +14,7 @@
         <th>Date</th>
         <th>Session</th>
         <th>Created By</th>
+        <th>Attendence</th>
       </tr>
 
       <% exams.forEach(exam => { %>
@@ -24,6 +25,9 @@
         <td><%= exam.exam_date %></td>
         <td><%= exam.session %></td>
         <td><%= exam.creator %></td>
+        <td>
+          <a href="/admin/exams/<%= exam.id %>/attendance"> View Attendance </a>
+        </td>
       </tr>
       <% }) %>
     </table>

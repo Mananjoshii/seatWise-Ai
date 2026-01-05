@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Exam Attendance</title>
+  </head>
+  <body>
+    <h2>Exam Attendance Report</h2>
+
+    <table border="1">
+      <tr>
+        <th>Classroom</th>
+        <th>Bench</th>
+        <th>Student</th>
+        <th>Status</th>
+      </tr>
+
+      <% records.forEach(r => { %>
+      <tr>
+        <td><%= r.classroom %></td>
+        <td><%= r.bench_number %></td>
+        <td><%= r.student %></td>
+        <td>
+          <% if (r.status === 'PRESENT') { %> ✅ Present <% } else { %> ❌
+          Absent <% } %>
+        </td>
+      </tr>
+      <% }) %>
+    </table>
+  </body>
+</html>
