@@ -2,15 +2,19 @@
 <html>
   <head>
     <title>Contact</title>
+    <link rel="stylesheet" href="/css/contact.css" />
   </head>
   <body>
-    <h1>Contact</h1>
+    <%- include('partials/header') %>
+    <div class="contact-container">
+      <h1>Contact</h1>
 
-    <p>
-      For access issues, exam-related queries, or system support, please contact
-      the Global Administrator.
-    </p>
+      <p>
+        For access issues, exam-related queries, or system support, please
+        contact the Global Administrator.
+      </p>
 
-    <p><b>Email:</b> <%= adminEmail %></p>
+      <p class="contact-email"><b>Email:</b> <%= adminEmail %></p>
+    </div>
   </body>
 </html>

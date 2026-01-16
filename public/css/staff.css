@@ -1,4 +1,4 @@
-/* Updated /css/style.css - Advanced Staff Dashboard styles */
+/* Final Optimized /css/style.css - Staff Dashboard */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
@@ -8,66 +8,69 @@
   box-sizing: border-box;
 }
 
+/* BODY */
 body {
   font-family: 'Inter', sans-serif;
   background-color: #f8f9fc;
   color: #1e293b;
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
-/* Page Container */
+/* PAGE CONTAINER */
 .page-container {
   min-height: 100vh;
-  margin-top: 80px;
+  margin-top: 24px;              /* reduced */
   margin-left: 260px;
-  padding: 3rem 5%;
+  padding: 2rem 4%;              /* reduced */
   background: linear-gradient(to bottom right, #f8f9fc, #eef2ff);
 }
 
-/* Header */
+/* HEADER */
 .page-header {
-  margin-bottom: 3rem;
+  margin-bottom: 1.5rem;         /* reduced */
   text-align: center;
 }
 
 .page-header h2 {
-  font-size: 2.6rem;
+  font-size: 1.9rem;             /* reduced */
   font-weight: 700;
   background: linear-gradient(90deg, #2563eb, #4f46e5);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.3rem;
 }
 
 .page-header p {
-  font-size: 1.3rem;
-  color: #475569;
+  font-size: 1rem;               /* reduced */
+  color: #64748b;
   font-weight: 500;
 }
 
-/* Duty Cards / Table Card */
+/* DUTY CARD / TABLE CARD */
 .duty-card {
   background: #ffffff;
-  border-radius: 20px;
+  border-radius: 14px;
   overflow: hidden;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
   border: 1px solid #e2e8f0;
 }
 
+/* TABLE */
 .duty-table {
   width: 100%;
   border-collapse: separate;
   border-spacing: 0;
 }
 
+/* TABLE HEADER */
 .duty-table thead th {
   background: linear-gradient(135deg, #2563eb, #4f46e5);
   color: #ffffff;
-  padding: 1.6rem 2rem;
+  padding: 0.9rem 1.2rem;        /* reduced */
   text-align: left;
   font-weight: 600;
-  font-size: 1.1rem;
+  font-size: 0.9rem;             /* reduced */
+  position: relative;
 }
 
 .duty-table thead th::after {
@@ -76,53 +79,61 @@ body {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 4px;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-  position: relative;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,0.25),
+    transparent
+  );
 }
 
+/* TABLE BODY */
 .duty-table tbody tr {
-  transition: all 0.3s ease;
+  transition: background-color 0.2s ease;
 }
 
 .duty-table tbody tr:hover {
   background-color: #f0f7ff;
-  transform: translateY(-4px);
-  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.12);
 }
 
+/* TABLE CELLS */
 .duty-table td {
-  padding: 1.8rem 2rem;
+  padding: 0.85rem 1.2rem;       /* reduced */
   border-bottom: 1px solid #e2e8f0;
-  font-size: 1.05rem;
+  font-size: 0.9rem;             /* reduced */
+  color: #1e293b;
 }
 
 .duty-table tbody tr:last-child td {
   border-bottom: none;
 }
 
+/* EXAM TITLE */
 .duty-table .exam-title {
-  font-weight: 700;
+  font-weight: 600;              /* reduced */
   color: #1e293b;
-  font-size: 1.15rem;
+  font-size: 0.95rem;            /* reduced */
 }
 
+/* ACTION LINKS */
 .duty-table .action-links {
   display: flex;
-  gap: 1.2rem;
+  gap: 0.6rem;                   /* reduced */
   flex-wrap: wrap;
 }
 
 .action-link {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.4rem;
-  border-radius: 10px;
+  gap: 0.35rem;
+  padding: 0.45rem 0.85rem;      /* reduced */
+  border-radius: 8px;
   font-weight: 600;
+  font-size: 0.75rem;            /* reduced */
   text-decoration: none;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.2s ease;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
 }
 
 .attendance-link {
@@ -131,8 +142,7 @@ body {
 }
 
 .attendance-link:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
+  box-shadow: 0 6px 18px rgba(16, 185, 129, 0.3);
 }
 
 .booklet-link {
@@ -141,26 +151,25 @@ body {
 }
 
 .booklet-link:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(245, 158, 11, 0.3);
+  box-shadow: 0 6px 18px rgba(245, 158, 11, 0.3);
 }
 
-/* Empty State */
+/* EMPTY STATE */
 .empty-state {
   text-align: center;
-  padding: 6rem 3rem;
+  padding: 3rem 2rem;            /* reduced */
   color: #64748b;
-  font-size: 1.4rem;
+  font-size: 1rem;               /* reduced */
   background: #ffffff;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  border-radius: 14px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
 }
 
-/* Responsive */
+/* RESPONSIVE */
 @media (max-width: 992px) {
   .page-container {
     margin-left: 0;
-    padding: 2rem 5%;
+    padding: 1.75rem 5%;
   }
 }
 
@@ -171,12 +180,70 @@ body {
     white-space: nowrap;
     -webkit-overflow-scrolling: touch;
   }
-  
+
   .action-links {
     flex-direction: column;
   }
-  
+
   .page-header h2 {
-    font-size: 2.2rem;
+    font-size: 1.6rem;
   }
+}
+/* NAVBAR */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  padding: 0 24px;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 1px 2px rgba(26, 31, 54, 0.05);
+}
+
+.logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1a1f36;
+  letter-spacing: -0.02em;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-links a {
+  padding: 8px 16px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #64748b;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: #1a1f36;
+  background: #f1f5f9;
+}
+
+.nav-links a:last-child {
+  background: #1a1f36;
+  color: #ffffff;
+  margin-left: 8px;
+}
+
+.nav-links a:last-child:hover {
+  background: #2d3748;
+}
+
+/* LAYOUT */
+.layout {
+  display: flex;
+  min-height: calc(100vh - 64px);
 }

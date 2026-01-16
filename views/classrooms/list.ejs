@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/css/list.css" />
   </head>
   <body>
+    <%- include('../partials/header') %>
     <div class="page-container">
       <div class="page-header">
         <h2>All Classrooms</h2>
@@ -38,8 +39,11 @@
               <td><%= c.floor !== null ? c.floor : '-' %></td>
               <td><%= c.department || '-' %></td>
               <td class="bench-count"><%= c.total_benches %></td>
+              <td>
+                <a href="/classrooms/:<%= c.name %>/delete">DELETE</a>
+              </td>
             </tr>
-            <% }) %> <% } %>
+            <% }) %> <% } %>  
           </tbody>
         </table>
       </div>

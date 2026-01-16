@@ -1,4 +1,4 @@
-/* Updated /css/style.css - Advanced Student Dashboard styles */
+/* Final Optimized /css/style.css - Student Dashboard */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
@@ -8,147 +8,202 @@
   box-sizing: border-box;
 }
 
+/* BODY */
 body {
   font-family: 'Inter', sans-serif;
   background-color: #f8f9fc;
   color: #1e293b;
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
-/* Page Container */
+/* PAGE CONTAINER */
 .page-container {
   min-height: 100vh;
-  margin-top: 80px;
+  margin-top: 24px;              /* reduced */
   margin-left: 260px;
-  padding: 3rem 5%;
+  padding: 2rem 4%;              /* reduced */
   background: linear-gradient(to bottom right, #f8f9fc, #eef2ff);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Student Dashboard Card */
+/* STUDENT DASHBOARD CARD */
 .student-dashboard {
   width: 100%;
-  max-width: 900px;
+  max-width: 680px;              /* reduced */
   background: #ffffff;
-  border-radius: 24px;
+  border-radius: 18px;
   overflow: hidden;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
   border: 1px solid #e2e8f0;
   text-align: center;
 }
 
+/* DASHBOARD HEADER */
 .dashboard-header {
   background: linear-gradient(135deg, #2563eb, #4f46e5);
-  padding: 4rem 2rem 3rem;
+  padding: 1.8rem 1.5rem;        /* reduced */
   color: white;
 }
 
 .dashboard-header h2 {
-  font-size: 2.8rem;
+  font-size: 1.9rem;             /* reduced */
   font-weight: 700;
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.3rem;
 }
 
 .welcome-message {
-  font-size: 1.6rem;
+  font-size: 1rem;               /* reduced */
   font-weight: 500;
   opacity: 0.95;
 }
 
-/* Upcoming Exam Info */
+/* UPCOMING EXAM */
 .upcoming-exam {
-  padding: 3rem 2rem 2rem;
+  padding: 1.8rem 1.5rem;        /* reduced */
   background: #f8fafc;
 }
 
 .upcoming-exam h3 {
-  font-size: 1.8rem;
+  font-size: 1.1rem;             /* reduced */
   color: #1e293b;
+  margin-bottom: 1rem;
+}
+
+/* EXAM DETAILS */
+.exam-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;                     /* reduced */
   margin-bottom: 1.5rem;
 }
 
-.exam-details {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 2.5rem;
-}
-
+/* DETAIL CARD */
 .detail-card {
   background: #ffffff;
-  padding: 1.8rem;
-  border-radius: 16px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+  padding: 1rem;                 /* reduced */
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
   border: 1px solid #e2e8f0;
 }
 
 .detail-card .label {
-  font-size: 1.05rem;
+  font-size: 0.75rem;            /* reduced */
   color: #64748b;
-  margin-bottom: 0.8rem;
-  font-weight: 500;
+  margin-bottom: 0.2rem;
+  font-weight: 600;
 }
 
 .detail-card .value {
-  font-size: 1.6rem;
+  font-size: 1.05rem;            /* reduced */
   font-weight: 700;
   color: #2563eb;
 }
 
-/* Navigation Action */
+/* NAVIGATION ACTION */
 .navigation-action {
-  padding: 2.5rem 2rem 4rem;
+  padding: 1.6rem 1.5rem 2rem;   /* reduced */
 }
 
+/* BUTTON */
 .navigation-btn {
   display: inline-block;
-  padding: 1.4rem 4rem;
+  padding: 0.75rem 2.2rem;       /* reduced */
   background: linear-gradient(135deg, #2563eb, #4f46e5);
   color: white;
-  font-size: 1.3rem;
+  font-size: 0.9rem;             /* reduced */
   font-weight: 600;
-  border-radius: 16px;
+  border-radius: 10px;
   text-decoration: none;
-  box-shadow: 0 10px 30px rgba(37, 99, 235, 0.3);
-  transition: all 0.3s ease;
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.3);
+  transition: all 0.25s ease;
 }
 
 .navigation-btn:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 16px 40px rgba(37, 99, 235, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(37, 99, 235, 0.4);
 }
 
-/* No Upcoming Exam State */
+/* NO EXAM STATE */
 .no-exam {
-  padding: 4rem 2rem;
+  padding: 2rem 1.5rem;          /* reduced */
   color: #64748b;
-  font-size: 1.4rem;
+  font-size: 1rem;               /* reduced */
 }
 
-/* Responsive */
+/* RESPONSIVE */
 @media (max-width: 992px) {
   .page-container {
     margin-left: 0;
-    padding: 2rem 5%;
+    padding: 1.75rem 5%;
   }
 }
 
 @media (max-width: 768px) {
   .dashboard-header {
-    padding: 3rem 1.5rem;
+    padding: 1.6rem 1.2rem;
   }
-  
-  .dashboard-header h2 {
-    font-size: 2.4rem;
-  }
-  
-  .welcome-message {
-    font-size: 1.4rem;
-  }
-  
+
   .exam-details {
     grid-template-columns: 1fr;
   }
+}
+/* NAVBAR */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  padding: 0 24px;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 1px 2px rgba(26, 31, 54, 0.05);
+}
+
+.logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1a1f36;
+  letter-spacing: -0.02em;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-links a {
+  padding: 8px 16px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #64748b;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: #1a1f36;
+  background: #f1f5f9;
+}
+
+.nav-links a:last-child {
+  background: #1a1f36;
+  color: #ffffff;
+  margin-left: 8px;
+}
+
+.nav-links a:last-child:hover {
+  background: #2d3748;
+}
+
+/* LAYOUT */
+.layout {
+  display: flex;
+  min-height: calc(100vh - 64px);
 }

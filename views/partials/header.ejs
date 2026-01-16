@@ -1,0 +1,29 @@
+<style>
+  .user-name {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 15px;
+    font-weight: 600;
+    color: #38bdf8;
+    background: rgba(56, 189, 248, 0.15);
+    padding: 6px 14px;
+    border-radius: 999px;
+    letter-spacing: 0.5px;
+  }
+</style>
+
+<nav class="navbar">
+  <div class="logo">benchWalaAi</div>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="/contact">Contact</a>
+    <a href="/about">About</a>
+    <% if (session && session.user) { %>
+    <span class="user-name"><%= session.user.name %></span>
+    <a href="/logout" class="logout-btn">Logout</a>
+    <% } else { %>
+    <a href="/login">Login</a>
+    <% } %>
+  </div>
+</nav>

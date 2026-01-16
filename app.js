@@ -5,7 +5,7 @@ const db = require("./config/db");
 const session = require("express-session");
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const DB_PORT = process.env.DB_PORT || 3000;
 
 // view engine
 app.set("view engine", "ejs");
@@ -74,7 +74,14 @@ app.use("/", adminBookletRoutes);
 const pagesRoutes = require("./routes/pages.routes");
 app.use("/", pagesRoutes);
 
+//logout
+app.get("/logout", (req, res) => {
+  req.session.destroy(() => {
+    res.redirect("/");
+  });
+});
+
 // server
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+app.listen(DB_PORT, () => {
+  console.log(`Server running on http://localhost:${DB_PORT}`);
 });

@@ -99,4 +99,9 @@ router.get(
   }
 );
 
+router.get("/classrooms/:c.name/delete", (req, res) => {
+  const { name } = req.params;
+  console.log(name);
+});
+
 module.exports = router;

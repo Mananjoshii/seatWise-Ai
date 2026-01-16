@@ -1,6 +1,6 @@
-/* /css/about.css - Advanced About page styles */
+/* about.css - benchWalaAi About Page */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 * {
   margin: 0;
@@ -9,192 +9,227 @@
 }
 
 body {
-  font-family: 'Inter', sans-serif;
-  background: linear-gradient(to bottom right, #f8f9fc, #eef2ff);
-  color: #1e293b;
-  line-height: 1.8;
+  font-family: 'Inter', system-ui, sans-serif;
+  background: #f5f7fa;
+  color: #1a1f36;
   min-height: 100vh;
+  /* padding: 48px 24px; */
+}
+/* NAVBAR */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  padding: 0 24px;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 1px 2px rgba(26, 31, 54, 0.05);
 }
 
-/* Page Container */
+.logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1a1f36;
+  letter-spacing: -0.02em;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-links a {
+  padding: 8px 16px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #64748b;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: #1a1f36;
+  background: #f1f5f9;
+}
+
+.nav-links a:last-child {
+  background: #1a1f36;
+  color: #ffffff;
+  margin-left: 8px;
+}
+
+.nav-links a:last-child:hover {
+  background: #2d3748;
+}
+
+/* LAYOUT */
+.layout {
+  display: flex;
+  min-height: calc(100vh - 64px);
+}
+
+
+/* PAGE CONTAINER */
 .page-container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 4rem 5%;
+  max-width: 800px;
+  margin: 48px auto;
 }
 
-/* Header */
+/* PAGE HEADER */
 .page-header {
-  text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 32px;
 }
 
 .page-header h1 {
-  font-size: 3.2rem;
+  font-size: 2.25rem;
   font-weight: 700;
-  background: linear-gradient(90deg, #2563eb, #4f46e5);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: 1.5rem;
+  color: #1a1f36;
+  letter-spacing: -0.02em;
 }
 
-/* Intro Section */
+/* INTRO SECTION */
 .intro-section {
   background: #ffffff;
-  padding: 3rem 3.5rem;
-  border-radius: 20px;
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
-  margin-bottom: 4rem;
-  text-align: center;
-  font-size: 1.2rem;
-  color: #475569;
-  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 3px rgba(26, 31, 54, 0.08);
 }
 
-/* Workflow Section */
+.intro-section p {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: #475569;
+}
+
+/* WORKFLOW SECTION */
 .workflow-section {
   background: #ffffff;
-  padding: 3.5rem 3.5rem;
-  border-radius: 20px;
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
-  margin-bottom: 4rem;
-  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 3px rgba(26, 31, 54, 0.08);
 }
 
 .workflow-section h3 {
-  font-size: 2.2rem;
-  font-weight: 700;
-  margin-bottom: 2.5rem;
-  text-align: center;
-  color: #1e293b;
-  background: linear-gradient(90deg, #2563eb, #4f46e5);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1a1f36;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #2d9c92;
+  display: inline-block;
 }
 
 .workflow-list {
-  counter-reset: step-counter;
-  display: grid;
-  gap: 2rem;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .workflow-item {
   position: relative;
-  padding-left: 4.5rem;
-  font-size: 1.15rem;
-  color: #334155;
+  padding: 16px 16px 16px 48px;
+  background: #f8fafc;
+  border-radius: 10px;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: #475569;
+  border-left: 3px solid #2d9c92;
+  transition: all 0.2s ease;
+}
+
+.workflow-item:hover {
+  background: #f1f5f9;
+  transform: translateX(4px);
 }
 
 .workflow-item::before {
-  counter-increment: step-counter;
-  content: counter(step-counter);
+  content: counter(step);
+  counter-increment: step;
   position: absolute;
-  left: 0;
-  top: 0;
-  width: 3.2rem;
-  height: 3.2rem;
-  background: linear-gradient(135deg, #2563eb, #4f46e5);
-  color: white;
-  font-size: 1.6rem;
-  font-weight: 700;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  background: #2d9c92;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 600;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.3);
+}
+
+.workflow-list {
+  counter-reset: step;
 }
 
 .workflow-item strong {
-  color: #2563eb;
-  font-weight: 700;
+  color: #1a1f36;
+  font-weight: 600;
 }
 
-/* Access Section */
+/* ACCESS SECTION */
 .access-section {
-  background: #ffffff;
-  padding: 3rem 3.5rem;
-  border-radius: 20px;
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
-  margin-bottom: 4rem;
-  border: 1px solid #e2e8f0;
+  background: linear-gradient(135deg, #1a1f36 0%, #252b45 100%);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
 }
 
 .access-section h3 {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 2rem;
-  text-align: center;
-  color: #1e293b;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 16px;
 }
 
 .access-list {
   list-style: none;
-  display: grid;
-  gap: 1.5rem;
-  max-width: 700px;
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .access-list li {
-  padding-left: 2.5rem;
-  position: relative;
-  font-size: 1.15rem;
-  color: #334155;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  font-size: 0.9375rem;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .access-list li::before {
-  content: '✓';
-  position: absolute;
-  left: 0;
-  color: #16a34a;
-  font-weight: 700;
-  font-size: 1.4rem;
+  content: "→";
+  margin-right: 10px;
+  color: #2d9c92;
+  font-weight: 600;
 }
 
-/* Closing */
+/* CLOSING */
 .closing {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 24px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 3px rgba(26, 31, 54, 0.08);
   text-align: center;
-  font-size: 1.2rem;
-  color: #475569;
+}
+
+.closing p {
+  font-size: 1rem;
+  color: #64748b;
   font-style: italic;
-  padding: 2.5rem;
-  background: #f0f7ff;
-  border-radius: 16px;
-  border: 1px dashed #2563eb;
-}
-
-/* Responsive */
-@media (max-width: 992px) {
-  .page-container {
-    padding: 3rem 5%;
-  }
-  
-  .workflow-list,
-  .access-list {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 768px) {
-  .page-header h1 {
-    font-size: 2.8rem;
-  }
-  
-  .workflow-section,
-  .access-section,
-  .intro-section {
-    padding: 2.5rem 2rem;
-  }
-  
-  .workflow-item {
-    padding-left: 4rem;
-  }
-  
-  .workflow-item::before {
-    width: 2.8rem;
-    height: 2.8rem;
-    font-size: 1.4rem;
-  }
 }
