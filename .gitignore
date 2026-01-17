@@ -192,3 +192,5 @@ db.sqlite3
 # Environment variables
 .env
 .env.*
+
+exam_intent_model/exam_intent_model/*.safetensors
