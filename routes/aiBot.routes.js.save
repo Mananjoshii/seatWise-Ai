@@ -1,17 +1,9 @@
 const express = require("express");
-const axios = require("axios");
 const db = require("../config/db");
-const { isLoggedIn } = require("../middleware/auth.middleware");
-
-const {
-  getExamSchedule,
-  getSeatLocation,
-  getExamHall,
-} = require("./aiStudent.routes");
+const { isLoggedIn, allowRoles } = require("../middleware/auth.middleware");
+const axios = require("axios");
 
 const router = express.Router();
-
-/* 🔹 Extract subject codes like CS101 */
 function extractSubjects(text) {
   const regex = /\b[A-Z]{2,5}\d{2,4}[A-Z]*\b/g;
   return [...new Set(text.toUpperCase().match(regex) || [])];
@@ -20,94 +12,108 @@ function extractSubjects(text) {
 router.post("/ask-ai", async (req, res) => {
   try {
     const { text } = req.body;
-
-    if (!text || !text.trim()) {
-      return res.json({ response: "<b>Please enter a question.</b>" });
+    if (!text) {
+      return res.status(400).json({ error: "Text required" });
     }
 
-    /* 1️⃣ Extract subjects */
+    /* 1️⃣ Extract subject codes */
     const subjects = extractSubjects(text);
 
-    /* 2️⃣ Clean text for NLP */
+    /* 2️⃣ Clean text for AI */
     let cleanText = text;
     subjects.forEach((sub) => {
       cleanText = cleanText.replace(new RegExp(sub, "gi"), "subject");
     });
 
-    /* 3️⃣ Ask NLP service */
-    const aiRes = await axios.post(
-      "http://nlp-service:8000/predict",
-      { text: cleanText },
-      { timeout: 5000 }
-    );
+    /* 3️⃣ Ask AI for intent */
+    try {
+      const aiRes = await axios.post(
+        "http://nlp-service:8000/predict",
+        { text: cleanText },
+        { headers: { "Content-Type": "application/json" } },
+      );
+      console.log("AI RESPONSE:", aiRes.data);
+    } catch (err) {
+      console.error("NLP ERROR:", err.response?.data || err.message);
+    }
+
+    console.log(aiRes.data);
 
     const { intent, confidence } = aiRes.data;
 
-    /* 4️⃣ Not logged in → ask login */
+    /* 4️⃣ If NOT logged in → ask to login */
     if (!req.session.user) {
-      req.session.pendingAIQuery = { intent, subjects };
-      return res.json({
-        response: `🔒 Please <a href="/login">login</a> to view your exam details.`,
+      // save query so it can be answered after login
+      req.session.pendingAIQuery = {
+        text,
         intent,
-        confidence,
+        subjects,
+      };
+
+      return res.json({
+        response: `
+          <p>🔒 Please <a href="/login">login</a> to view your exam details.</p>
+        `,
       });
     }
 
-    /* 5️⃣ Logged-in user → DB logic */
+    /* 5️⃣ Logged-in user */
     const studentId = req.session.user.id;
     let html = "";
 
     switch (intent) {
-      case "get_exam_schedule":
+      case "get_exam_schedule": {
         html = await getExamSchedule(studentId);
         break;
+      }
 
-      case "get_seat_location":
+      case "get_seat_location": {
         if (!subjects.length) {
           html = "<b>Please specify the subject code.</b>";
         } else {
           html = await getSeatLocation(studentId, subjects[0]);
         }
         break;
+      }
 
-      case "get_exam_hall":
+      case "get_exam_hall": {
         if (!subjects.length) {
           html = "<b>Please specify the subject code.</b>";
         } else {
           html = await getExamHall(studentId, subjects[0]);
         }
         break;
+      }
 
       default:
         html = "<b>Sorry, I didn't understand your request.</b>";
     }
 
-    return res.json({
+    res.json({
       response: html,
       intent,
       confidence,
     });
   } catch (err) {
-    console.error("ASK-AI ERROR:", err.message);
-    return res.json({
-      response: "<b>AI service is temporarily unavailable.</b>",
-    });
+    console.error("ASK-AI ERROR:", err);
+    res.status(500).json({ error: "AI failed" });
   }
 });
 
-/* 🔹 Handle post-login AI query */
+const {
+  getExamSchedule,
+  getSeatLocation,
+  getExamHall,
+} = require("./aiStudent.routes");
+
 router.get("/ai-response", isLoggedIn, async (req, res) => {
   const studentId = req.session.user.id;
   const { intent, subjects } = req.session.pendingAIQuery || {};
+
   delete req.session.pendingAIQuery;
 
   let html = "<b>No pending AI query.</b>";
 
-  if (intent === "get_exam_schedule") {
-    html = await getExamSchedule(studentId);
-  }
+  if (intent === "get_exam_s
 
-  res.render("ai-response", { html });
-});
-
-module.exports = router;
+ 

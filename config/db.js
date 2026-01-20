@@ -5,9 +5,26 @@ const pool = mysql.createPool({
   user: process.env.DB_USER,
   password: process.env.DB_PASS,
   database: process.env.DB_NAME,
-  ssl: {
-    rejectUnauthorized: true,
-  },
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0,
+  ssl: process.env.DB_SSL === "true"
+    ? { rejectUnauthorized: true }
+    : false,
 });
 
-module.exports = pool.promise();
+// ✅ CORRECT WAY: use promise wrapper
+const promisePool = pool.promise();
+
+// ✅ Non-blocking DB test
+promisePool
+  .getConnection()
+  .then(conn => {
+    console.log("✅ Database connected");
+    conn.release();
+  })
+  .catch(err => {
+    console.error("❌ Database connection failed:", err.message);
+  });
+
+module.exports = promisePool;

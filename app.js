@@ -5,7 +5,7 @@ const db = require("./config/db");
 const session = require("express-session");
 
 const app = express();
-const DB_PORT = process.env.DB_PORT || 3000;
+const PORT = process.env.PORT || 80;
 
 // view engine
 app.set("view engine", "ejs");
@@ -78,6 +78,6 @@ const aiBotRoutes = require("./routes/aiBot.routes");
 app.use("/", aiBotRoutes);
 
 // server
-app.listen(DB_PORT, () => {
-  console.log(`Server running on http://localhost:${DB_PORT}`);
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`Server running on port ${PORT}`);
 });
