@@ -1,16 +1,36 @@
 <style>
-  .user-name {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 15px;
-    font-weight: 600;
-    color: #38bdf8;
-    background: rgba(56, 189, 248, 0.15);
-    padding: 6px 14px;
-    border-radius: 999px;
-    letter-spacing: 0.5px;
-  }
+  /* Navbar with Glassmorphism */
+.navbar {
+  height: var(--navbar-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+  background: var(--glass-bg);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid var(--glass-border);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  position: relative; /* Changed from sticky to work with the fixed layout height */
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: 900;
+  background: var(--main-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -1px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  margin-left: 2rem;
+  color: var(--text-primary);
+  font-weight: 600;
+  transition: 0.3s;
+}
+
 </style>
 
 <nav class="navbar">
