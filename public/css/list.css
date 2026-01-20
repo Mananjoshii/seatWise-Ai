@@ -1,6 +1,13 @@
-/* Final Optimized /css/style.css - Classrooms List Page */
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+/* list.css - Vibrant Dashboard Table Theme */
+:root {
+  --main-gradient: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #db2777 100%);
+  --navy-dark: #0a1128;
+  --text-primary: #1e1b4b;
+  --text-secondary: #475569;
+  --bg-gradient: radial-gradient(at 0% 0%, rgba(79, 70, 229, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(219, 39, 119, 0.1) 0px, transparent 50%);
+  --accent-blue: #38bdf8;
+}
 
 * {
   margin: 0;
@@ -8,217 +15,139 @@
   box-sizing: border-box;
 }
 
-/* BODY */
 body {
   font-family: 'Inter', sans-serif;
-  background-color: #f8f9fc;
-  color: #1e293b;
-  line-height: 1.5;
-}
-
-/* PAGE CONTAINER */
-.page-container {
+  background-color: #f8fafc;
+  background-image: var(--bg-gradient);
+  color: var(--text-primary);
   min-height: 100vh;
-  margin-top: 24px;              /* reduced */
-  margin-left: 260px;
-  padding: 2rem 4%;              /* reduced */
-  background: linear-gradient(to bottom right, #f8f9fc, #eef2ff);
+  padding: 50px 5%;
 }
 
-/* HEADER */
+.page-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* HEADER SECTION: Flexbox for Title and Button alignment */
 .page-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1.5rem;         /* reduced */
-  flex-wrap: wrap;
-  gap: 0.75rem;
+  margin-bottom: 40px;
 }
 
 .page-header h2 {
-  font-size: 1.8rem;             /* reduced */
-  font-weight: 700;
-  background: linear-gradient(90deg, #2563eb, #4f46e5);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--navy-dark);
+  letter-spacing: -1px;
 }
 
-/* HEADER BUTTON */
-.page-header .btn-primary {
-  padding: 0.55rem 1.3rem;       /* reduced */
-  background: linear-gradient(135deg, #2563eb, #4f46e5);
-  color: white;
-  font-weight: 600;
-  font-size: 0.85rem;            /* reduced */
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
-  transition: all 0.25s ease;
+/* ADD NEW CLASSROOM BUTTON: Matches the AI submit button style */
+.btn-primary {
   text-decoration: none;
+  background: var(--main-gradient);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 0.95rem;
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 8px;
+  box-shadow: 0 8px 15px rgba(124, 58, 237, 0.25);
+  transition: all 0.3s ease;
 }
 
-.page-header .btn-primary:hover {
+.btn-primary:hover {
+  filter: brightness(1.15);
   transform: translateY(-2px);
-  box-shadow: 0 8px 22px rgba(37, 99, 235, 0.4);
+  box-shadow: 0 12px 25px rgba(124, 58, 237, 0.4);
+  color: white;
 }
-
-/* TABLE CARD */
+/* TABLE CARD: Clean elevated container */
 .table-card {
-  background: #ffffff;
-  border-radius: 14px;
-  overflow: hidden;
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+  background: white;
+  border-radius: 24px;
+  padding: 10px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
   border: 1px solid #e2e8f0;
+  overflow: hidden;
 }
 
-/* TABLE */
 .classrooms-table {
   width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
+  border-collapse: collapse;
 }
 
 /* TABLE HEADER */
-.classrooms-table thead th {
-  background: linear-gradient(135deg, #2563eb, #4f46e5);
-  color: #ffffff;
-  padding: 0.9rem 1.2rem;        /* reduced */
-  text-align: left;
-  font-weight: 600;
-  font-size: 0.9rem;             /* reduced */
-  position: relative;
+.classrooms-table thead {
+  background: #f8fafc;
 }
 
-.classrooms-table thead th::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255,255,255,0.25),
-    transparent
-  );
+.classrooms-table th {
+  padding: 18px 25px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #64748b;
+  border-bottom: 1px solid #f1f5f9;
+  text-align: left;
 }
 
 /* TABLE BODY */
-.classrooms-table tbody tr {
-  transition: background-color 0.2s ease;
+.classrooms-table td {
+  padding: 20px 25px;
+  font-size: 1rem;
+  color: var(--text-primary);
+  border-bottom: 1px solid #f8fafc;
 }
 
 .classrooms-table tbody tr:hover {
-  background-color: #f0f7ff;
+  background-color: #fdfdfd;
 }
 
-.classrooms-table td {
-  padding: 0.85rem 1.2rem;       /* reduced */
-  border-bottom: 1px solid #e2e8f0;
-  font-size: 0.9rem;             /* reduced */
-  color: #1e293b;
-}
-
-.classrooms-table tbody tr:last-child td {
+.classrooms-table tr:last-child td {
   border-bottom: none;
 }
 
-/* BENCH COUNT */
-.classrooms-table .bench-count {
+/* SPECIAL COLUMN STYLING */
+.classrooms-table td strong {
+  color: var(--navy-dark);
   font-weight: 700;
-  color: #2563eb;
-  font-size: 0.95rem;            /* reduced */
+}
+
+.bench-count {
+  font-weight: 700;
+  color: #7c3aed; /* Vibrant purple accent for data */
 }
 
 /* EMPTY STATE */
 .empty-state {
-  text-align: center;
-  padding: 3rem 1.5rem;          /* reduced */
-  color: #64748b;
-  font-size: 1rem;               /* reduced */
+  text-align: center !important;
+  padding: 80px 20px !important;
+  color: #94a3b8;
+  font-weight: 500;
+  font-style: italic;
+}
+
+/* ANIMATION */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* RESPONSIVE */
-@media (max-width: 992px) {
-  .page-container {
-    margin-left: 0;
-    padding: 1.75rem 5%;
-  }
-}
-
 @media (max-width: 768px) {
-  .classrooms-table {
-    display: block;
-    overflow-x: auto;
-    white-space: nowrap;
-    -webkit-overflow-scrolling: touch;
-  }
-
   .page-header {
     flex-direction: column;
-    align-items: flex-start;
+    gap: 20px;
+    text-align: center;
   }
-}
-/* NAVBAR */
-.navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 64px;
-  padding: 0 24px;
-  background: #ffffff;
-  border-bottom: 1px solid #e5e7eb;
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  box-shadow: 0 1px 2px rgba(26, 31, 54, 0.05);
-}
-
-.logo {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #1a1f36;
-  letter-spacing: -0.02em;
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.nav-links a {
-  padding: 8px 16px;
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: #64748b;
-  text-decoration: none;
-  border-radius: 6px;
-  transition: all 0.2s ease;
-}
-
-.nav-links a:hover {
-  color: #1a1f36;
-  background: #f1f5f9;
-}
-
-.nav-links a:last-child {
-  background: #1a1f36;
-  color: #ffffff;
-  margin-left: 8px;
-}
-
-.nav-links a:last-child:hover {
-  background: #2d3748;
-}
-
-/* LAYOUT */
-.layout {
-  display: flex;
-  min-height: calc(100vh - 64px);
+  .table-card {
+    overflow-x: auto;
+  }
 }

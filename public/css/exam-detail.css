@@ -1,6 +1,12 @@
-/* Final Optimized /css/style.css - Student Seat Details Page */
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+/* exam-detail.css - High-Energy Seat Detail Theme */
+:root {
+  --main-gradient: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #db2777 100%);
+  --navy-dark: #0a1128;
+  --text-primary: #1e1b4b;
+  --text-secondary: #475569;
+  --bg-gradient: radial-gradient(at 0% 0%, rgba(79, 70, 229, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(219, 39, 119, 0.1) 0px, transparent 50%);
+}
 
 * {
   margin: 0;
@@ -8,201 +14,122 @@
   box-sizing: border-box;
 }
 
-/* BODY */
 body {
   font-family: 'Inter', sans-serif;
-  background-color: #f8f9fc;
-  color: #1e293b;
-  line-height: 1.5;
-}
-
-/* PAGE CONTAINER - CENTERED */
-.page-container {
+  background-color: #f8fafc;
+  background-image: var(--bg-gradient);
+  color: var(--text-primary);
   min-height: 100vh;
-  margin-top: 24px;              /* reduced */
-  margin-left: 260px;
-  padding: 2rem 4%;              /* reduced */
-  background: linear-gradient(to bottom right, #f8f9fc, #eef2ff);
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 20px;
 }
 
-/* SEAT CARD */
-.seat-card {
+.page-container {
   width: 100%;
-  max-width: 640px;              /* reduced */
-  background: #ffffff;
-  border-radius: 18px;
+  max-width: 500px;
+  animation: scaleIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* SEAT CARD: Premium elevated container */
+.seat-card {
+  background: white;
+  border-radius: 32px;
   overflow: hidden;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
-  border: 1px solid #e2e8f0;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+  border: 1px solid #eef2ff;
+}
+
+.seat-header {
+  background: var(--navy-dark);
+  padding: 40px 30px;
+  color: white;
   text-align: center;
 }
 
-/* HEADER */
-.seat-header {
-  background: linear-gradient(135deg, #2563eb, #4f46e5);
-  padding: 1.8rem 1.5rem;        /* reduced */
-  color: white;
-}
-
 .seat-header h2 {
-  font-size: 1.8rem;             /* reduced */
-  font-weight: 700;
-  margin-bottom: 0.3rem;
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-bottom: 8px;
+  line-height: 1.2;
 }
 
 .seat-header p {
-  font-size: 1rem;               /* reduced */
-  opacity: 0.95;
+  color: #94a3b8;
+  font-size: 0.95rem;
   font-weight: 500;
 }
 
 /* DETAILS SECTION */
 .seat-details {
-  padding: 2rem 2rem 2.5rem;     /* reduced */
+  padding: 40px 30px;
 }
 
 .seat-details h3 {
-  font-size: 1.2rem;             /* reduced */
-  font-weight: 600;
-  margin-bottom: 1.5rem;
-  color: #1e293b;
-  position: relative;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #64748b;
+  margin-bottom: 25px;
+  text-align: center;
 }
 
-.seat-details h3::after {
-  content: '';
-  position: absolute;
-  bottom: -6px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;                   /* reduced */
-  height: 3px;
-  background: linear-gradient(90deg, #2563eb, #4f46e5);
-  border-radius: 2px;
-}
-
-/* DETAILS GRID */
 .detail-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.2rem;                   /* reduced */
+  grid-template-columns: 1fr;
+  gap: 20px;
 }
 
-/* DETAIL ITEM */
 .detail-item {
-  background: #f0f7ff;
-  padding: 1.2rem 1.2rem;        /* reduced */
-  border-radius: 14px;
-  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.08);
-  border: 1px solid #dbeafe;
+  background: #f8fafc;
+  padding: 20px;
+  border-radius: 20px;
+  text-align: center;
+  border: 1px solid #f1f5f9;
+  transition: transform 0.3s ease;
 }
 
 .detail-item strong {
   display: block;
-  font-size: 0.85rem;            /* reduced */
-  color: #475569;
-  margin-bottom: 0.3rem;
-  font-weight: 600;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+  text-transform: uppercase;
 }
 
-/* VALUE */
 .detail-item .value {
-  font-size: 1.3rem;             /* reduced */
-  font-weight: 700;
-  color: #2563eb;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--navy-dark);
 }
 
-/* BENCH HIGHLIGHT */
+/* HIGHLIGHTED BENCH ITEM: Vibrant Gradient Text */
+.bench-highlight {
+  background: white;
+  border: 2px solid #eef2ff;
+  box-shadow: 0 10px 20px rgba(124, 58, 237, 0.05);
+}
+
 .bench-highlight .value {
-  font-size: 1.6rem;             /* reduced */
-  background: linear-gradient(135deg, #2563eb, #4f46e5);
+  font-size: 3.5rem; /* Large focus for the bench number */
+  background: var(--main-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  line-height: 1;
+  margin-top: 5px;
 }
 
-/* RESPONSIVE */
-@media (max-width: 992px) {
-  .page-container {
-    margin-left: 0;
-    padding: 1.75rem 5%;
-  }
+/* ANIMATION */
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
 }
 
-@media (max-width: 768px) {
-  .seat-header {
-    padding: 1.6rem 1.2rem;
-  }
-
-  .seat-details {
-    padding: 1.75rem 1.5rem;
-  }
-
-  .detail-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .bench-highlight .value {
-    font-size: 1.4rem;
-  }
-}
-/* NAVBAR */
-.navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 64px;
-  padding: 0 24px;
-  background: #ffffff;
-  border-bottom: 1px solid #e5e7eb;
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  box-shadow: 0 1px 2px rgba(26, 31, 54, 0.05);
-}
-
-.logo {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #1a1f36;
-  letter-spacing: -0.02em;
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.nav-links a {
-  padding: 8px 16px;
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: #64748b;
-  text-decoration: none;
-  border-radius: 6px;
-  transition: all 0.2s ease;
-}
-
-.nav-links a:hover {
-  color: #1a1f36;
-  background: #f1f5f9;
-}
-
-.nav-links a:last-child {
-  background: #1a1f36;
-  color: #ffffff;
-  margin-left: 8px;
-}
-
-.nav-links a:last-child:hover {
-  background: #2d3748;
-}
-
-/* LAYOUT */
-.layout {
-  display: flex;
-  min-height: calc(100vh - 64px);
+/* MOBILE RESPONSIVE */
+@media (max-width: 480px) {
+  .seat-header { padding: 30px 20px; }
+  .seat-details { padding: 30px 20px; }
+  .bench-highlight .value { font-size: 2.8rem; }
 }

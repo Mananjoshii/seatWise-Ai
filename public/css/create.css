@@ -1,6 +1,12 @@
-/* Final Optimized /css/style.css - Create Exam Page */
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+/* create.css - Vibrant Form Theme */
+:root {
+  --main-gradient: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #db2777 100%);
+  --navy-dark: #0a1128; /* Deep dark from reference image */
+  --text-primary: #1e1b4b;
+  --text-secondary: #475569;
+  --bg-gradient: radial-gradient(at 0% 0%, rgba(79, 70, 229, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(219, 39, 119, 0.1) 0px, transparent 50%);
+}
 
 * {
   margin: 0;
@@ -8,202 +14,135 @@
   box-sizing: border-box;
 }
 
-/* BODY */
 body {
   font-family: 'Inter', sans-serif;
-  background-color: #f8f9fc;
-  color: #1e293b;
-  line-height: 1.5;
-}
-
-/* PAGE CONTAINER */
-.page-container {
+  background-color: #f8fafc;
+  background-image: var(--bg-gradient);
+  color: var(--text-primary);
   min-height: 100vh;
-  margin-top: 24px;              /* reduced */
-  margin-left: 260px;
-  padding: 2rem 4%;              /* reduced */
-  background: linear-gradient(to bottom right, #f8f9fc, #eef2ff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
 }
 
-/* FORM CARD */
+.page-container {
+  width: 100%;
+  max-width: 600px;
+  animation: slideUp 0.5s ease-out;
+}
+
+/* FORM CARD: Clean white container matching the reference sign-in box */
 .form-card {
-  max-width: 600px;              /* reduced width */
-  margin: 0 auto;
-  background: #ffffff;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  border: 1px solid #e2e8f0;
+  background: white;
+  border-radius: 32px;
+  padding: 3rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+  border: 1px solid #eef2ff;
 }
 
-/* FORM HEADER */
 .form-header {
-  background: linear-gradient(135deg, #2563eb, #4f46e5);
-  padding: 1.8rem 1.5rem;        /* reduced */
+  margin-bottom: 2.5rem;
   text-align: center;
-  color: white;
 }
 
 .form-header h2 {
-  font-size: 1.5rem;             /* reduced */
-  font-weight: 700;
-  margin: 0;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--navy-dark);
+  letter-spacing: -1px;
 }
 
-/* FORM BODY */
-.form-body {
-  padding: 2rem 2rem;            /* reduced */
-}
-
-/* FORM GRID */
+/* GRID LAYOUT FOR FORM GROUPS */
 .form-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.4rem;                   /* reduced */
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
 }
 
-/* FORM GROUP */
+/* Make certain fields full width if needed */
+.form-group:first-child,
+.form-group:last-child {
+  grid-column: span 2;
+}
+
 .form-group {
   display: flex;
   flex-direction: column;
+  gap: 0.5rem;
 }
 
 .form-group label {
-  font-weight: 600;
-  color: #334155;
-  margin-bottom: 0.4rem;
-  font-size: 0.9rem;             /* reduced */
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding-left: 4px;
 }
 
-/* INPUTS */
-.form-group input,
-.form-group select {
-  padding: 0.7rem 0.9rem;        /* reduced */
-  border: 1px solid #cbd5e1;
-  border-radius: 10px;
-  font-size: 0.9rem;             /* reduced */
-  background-color: #f8fafc;
-  transition: all 0.2s ease;
+/* INPUTS: Styled like the email/password fields in the reference */
+input, select {
+  width: 100%;
+  padding: 14px 20px;
+  border-radius: 12px;
+  border: 2px solid #f1f5f9;
+  background: #f8fafc;
+  font-size: 1rem;
+  color: var(--text-primary);
+  transition: all 0.3s ease;
 }
 
-.form-group input:focus,
-.form-group select:focus {
+input:focus, select:focus {
   outline: none;
-  border-color: #2563eb;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
-  background-color: #ffffff;
+  border-color: #7c3aed;
+  background: white;
+  box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.1);
 }
 
-.form-group input[type="date"] {
-  cursor: text;
+input::placeholder {
+  color: #94a3b8;
 }
 
-/* FORM ACTIONS */
+/* SUBMIT BUTTON: Vibrant gradient style from home page */
 .form-actions {
-  margin-top: 1.8rem;            /* reduced */
-  text-align: center;
+  margin-top: 2.5rem;
 }
 
-/* SUBMIT BUTTON */
 .btn-submit {
-  padding: 0.75rem 2.2rem;       /* reduced */
-  background: linear-gradient(135deg, #2563eb, #4f46e5);
+  width: 100%;
+  background: var(--main-gradient);
   color: white;
-  font-size: 0.9rem;             /* reduced */
-  font-weight: 600;
   border: none;
-  border-radius: 10px;
+  padding: 18px;
+  border-radius: 16px;
+  font-size: 1.1rem;
+  font-weight: 700;
   cursor: pointer;
-  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.3);
-  transition: all 0.25s ease;
-  min-width: 200px;
+  box-shadow: 0 10px 20px rgba(124, 58, 237, 0.3);
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .btn-submit:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 26px rgba(37, 99, 235, 0.4);
+  box-shadow: 0 15px 25px rgba(124, 58, 237, 0.4);
 }
 
-/* RESPONSIVE */
-@media (max-width: 992px) {
-  .page-container {
-    margin-left: 0;
-    padding: 1.75rem 5%;
-  }
+/* ANIMATION */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-@media (max-width: 768px) {
+/* RESPONSIVE: Stack grid on mobile */
+@media (max-width: 480px) {
   .form-grid {
     grid-template-columns: 1fr;
   }
-
-  .btn-submit {
-    width: 100%;
+  .form-group {
+    grid-column: span 1 !important;
   }
-
-  .form-header {
-    padding: 1.6rem 1.2rem;
+  .form-card {
+    padding: 2rem;
   }
-
-  .form-body {
-    padding: 1.75rem 1.5rem;
-  }
-}
-/* NAVBAR */
-.navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 64px;
-  padding: 0 24px;
-  background: #ffffff;
-  border-bottom: 1px solid #e5e7eb;
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  box-shadow: 0 1px 2px rgba(26, 31, 54, 0.05);
-}
-
-.logo {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #1a1f36;
-  letter-spacing: -0.02em;
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.nav-links a {
-  padding: 8px 16px;
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: #64748b;
-  text-decoration: none;
-  border-radius: 6px;
-  transition: all 0.2s ease;
-}
-
-.nav-links a:hover {
-  color: #1a1f36;
-  background: #f1f5f9;
-}
-
-.nav-links a:last-child {
-  background: #1a1f36;
-  color: #ffffff;
-  margin-left: 8px;
-}
-
-.nav-links a:last-child:hover {
-  background: #2d3748;
-}
-
-/* LAYOUT */
-.layout {
-  display: flex;
-  min-height: calc(100vh - 64px);
 }

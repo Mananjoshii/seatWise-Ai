@@ -1,6 +1,12 @@
-/* Final Optimized /css/style.css - Student Dashboard */
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+/* student.css - Vibrant Student Dashboard Theme */
+:root {
+  --main-gradient: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #db2777 100%);
+  --navy-dark: #0a1128;
+  --text-primary: #1e1b4b;
+  --text-secondary: #475569;
+  --bg-gradient: radial-gradient(at 0% 0%, rgba(79, 70, 229, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(219, 39, 119, 0.1) 0px, transparent 50%);
+}
 
 * {
   margin: 0;
@@ -8,202 +14,104 @@
   box-sizing: border-box;
 }
 
-/* BODY */
 body {
   font-family: 'Inter', sans-serif;
-  background-color: #f8f9fc;
-  color: #1e293b;
-  line-height: 1.5;
-}
-
-/* PAGE CONTAINER */
-.page-container {
+  background-color: #f8fafc;
+  background-image: var(--bg-gradient);
+  color: var(--text-primary);
   min-height: 100vh;
-  margin-top: 24px;              /* reduced */
-  margin-left: 260px;
-  padding: 2rem 4%;              /* reduced */
-  background: linear-gradient(to bottom right, #f8f9fc, #eef2ff);
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 20px;
 }
 
-/* STUDENT DASHBOARD CARD */
-.student-dashboard {
+.page-container {
   width: 100%;
-  max-width: 680px;              /* reduced */
-  background: #ffffff;
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
-  border: 1px solid #e2e8f0;
+  max-width: 600px;
+  animation: fadeIn 0.8s ease-out;
+}
+
+/* DASHBOARD CARD */
+.student-dashboard {
+  background: white;
+  padding: 3.5rem 2.5rem;
+  border-radius: 32px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+  border: 1px solid #eef2ff;
   text-align: center;
 }
 
-/* DASHBOARD HEADER */
 .dashboard-header {
-  background: linear-gradient(135deg, #2563eb, #4f46e5);
-  padding: 1.8rem 1.5rem;        /* reduced */
-  color: white;
+  margin-bottom: 3rem;
 }
 
 .dashboard-header h2 {
-  font-size: 1.9rem;             /* reduced */
-  font-weight: 700;
-  margin-bottom: 0.3rem;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--navy-dark);
+  letter-spacing: -1px;
+  margin-bottom: 10px;
 }
 
 .welcome-message {
-  font-size: 1rem;               /* reduced */
+  font-size: 1.2rem;
+  color: var(--text-secondary);
   font-weight: 500;
-  opacity: 0.95;
 }
 
-/* UPCOMING EXAM */
-.upcoming-exam {
-  padding: 1.8rem 1.5rem;        /* reduced */
-  background: #f8fafc;
-}
-
-.upcoming-exam h3 {
-  font-size: 1.1rem;             /* reduced */
-  color: #1e293b;
-  margin-bottom: 1rem;
-}
-
-/* EXAM DETAILS */
-.exam-details {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 1rem;                     /* reduced */
-  margin-bottom: 1.5rem;
-}
-
-/* DETAIL CARD */
-.detail-card {
-  background: #ffffff;
-  padding: 1rem;                 /* reduced */
-  border-radius: 12px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
-  border: 1px solid #e2e8f0;
-}
-
-.detail-card .label {
-  font-size: 0.75rem;            /* reduced */
-  color: #64748b;
-  margin-bottom: 0.2rem;
-  font-weight: 600;
-}
-
-.detail-card .value {
-  font-size: 1.05rem;            /* reduced */
-  font-weight: 700;
-  color: #2563eb;
-}
-
-/* NAVIGATION ACTION */
+/* VIBRANT NAVIGATION BUTTON */
 .navigation-action {
-  padding: 1.6rem 1.5rem 2rem;   /* reduced */
+  margin-top: 2rem;
 }
 
-/* BUTTON */
 .navigation-btn {
-  display: inline-block;
-  padding: 0.75rem 2.2rem;       /* reduced */
-  background: linear-gradient(135deg, #2563eb, #4f46e5);
+  display: block;
+  text-decoration: none;
+  background: var(--main-gradient);
   color: white;
-  font-size: 0.9rem;             /* reduced */
-  font-weight: 600;
-  border-radius: 10px;
-  text-decoration: none;
-  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.3);
-  transition: all 0.25s ease;
-}
-
-.navigation-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 26px rgba(37, 99, 235, 0.4);
-}
-
-/* NO EXAM STATE */
-.no-exam {
-  padding: 2rem 1.5rem;          /* reduced */
-  color: #64748b;
-  font-size: 1rem;               /* reduced */
-}
-
-/* RESPONSIVE */
-@media (max-width: 992px) {
-  .page-container {
-    margin-left: 0;
-    padding: 1.75rem 5%;
-  }
-}
-
-@media (max-width: 768px) {
-  .dashboard-header {
-    padding: 1.6rem 1.2rem;
-  }
-
-  .exam-details {
-    grid-template-columns: 1fr;
-  }
-}
-/* NAVBAR */
-.navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 64px;
-  padding: 0 24px;
-  background: #ffffff;
-  border-bottom: 1px solid #e5e7eb;
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  box-shadow: 0 1px 2px rgba(26, 31, 54, 0.05);
-}
-
-.logo {
-  font-size: 1.25rem;
+  padding: 24px 30px;
+  border-radius: 20px;
+  font-size: 1.2rem;
   font-weight: 700;
-  color: #1a1f36;
-  letter-spacing: -0.02em;
+  box-shadow: 0 15px 30px rgba(124, 58, 237, 0.3);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 4px;
+/* HOVER EFFECT: LIGHTEN AND GLOW */
+.navigation-btn:hover {
+  filter: brightness(1.2) saturate(1.1); /* Becomes lighter and more vibrant */
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(124, 58, 237, 0.5);
+  color: white;
 }
 
-.nav-links a {
-  padding: 8px 16px;
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: #64748b;
-  text-decoration: none;
-  border-radius: 6px;
-  transition: all 0.2s ease;
+.navigation-btn:active {
+  transform: translateY(-2px) scale(0.98);
 }
 
-.nav-links a:hover {
-  color: #1a1f36;
-  background: #f1f5f9;
+/* FADE IN ANIMATION */
+@keyframes fadeIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(30px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
 }
 
-.nav-links a:last-child {
-  background: #1a1f36;
-  color: #ffffff;
-  margin-left: 8px;
-}
-
-.nav-links a:last-child:hover {
-  background: #2d3748;
-}
-
-/* LAYOUT */
-.layout {
-  display: flex;
-  min-height: calc(100vh - 64px);
+/* MOBILE OPTIMIZATION */
+@media (max-width: 480px) {
+  .student-dashboard {
+    padding: 2.5rem 1.5rem;
+  }
+  .dashboard-header h2 {
+    font-size: 1.8rem;
+  }
+  .navigation-btn {
+    font-size: 1rem;
+    padding: 20px;
+  }
 }
